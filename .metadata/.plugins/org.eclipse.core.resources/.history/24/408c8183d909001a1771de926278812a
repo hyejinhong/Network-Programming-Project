@@ -44,6 +44,7 @@ public class MultiChatUI extends JFrame {
     public MultiChatUI() {
 
         // 메인 프레임 구성 
+    	JFrame mainFrame = new JFrame();
     	this.setTitle("::멀티챗::");
     	
         // 로그인 패널 화면 구성 (JPanel)
@@ -95,7 +96,7 @@ public class MultiChatUI extends JFrame {
     	tab.add("logout", logoutPanel);
     	
         // 메시지 출력 영역 초기화
-    	msgOut = new JTextArea(10, 40);
+    	msgOut = new JTextArea(30, 20);
     	
         // JTextArea 의 내용을 수정하지 못하도록 함. 즉 출력전용으로 사용
     	msgOut.setEditable(false);
@@ -129,10 +130,36 @@ public class MultiChatUI extends JFrame {
      * @param listener
      */
     public void addButtonActionListener(ActionListener listener) {
-        // 이벤트 리스너 등록  	
-    	loginButton.addActionListener(listener);
-    	logoutButton.addActionListener(listener);
-    	exitButton.addActionListener(listener);
+        // 이벤트 리스너 등록
+    	loginButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				id = idInput.getText();
+                outLabel.setText("대화명 : " + id);
+                cardLayout.show(tab, "logout");
+			}
+		});
+    	
+    	logoutButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				id = null;
+				outLabel.setText("");
+				cardLayout.show(tab, "login");
+			}
+		});
+    	
+    	exitButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			}
+		});
     }
     
     

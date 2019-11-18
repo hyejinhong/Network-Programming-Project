@@ -44,6 +44,7 @@ public class MultiChatUI extends JFrame {
     public MultiChatUI() {
 
         // 메인 프레임 구성 
+    	JFrame mainFrame = new JFrame();
     	this.setTitle("::멀티챗::");
     	
         // 로그인 패널 화면 구성 (JPanel)
@@ -129,10 +130,37 @@ public class MultiChatUI extends JFrame {
      * @param listener
      */
     public void addButtonActionListener(ActionListener listener) {
-        // 이벤트 리스너 등록  	
-    	loginButton.addActionListener(listener);
-    	logoutButton.addActionListener(listener);
-    	exitButton.addActionListener(listener);
+        // 이벤트 리스너 등록
+    	loginButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				id = idInput.getText();
+                outLabel.setText("대화명 : " + id);
+                cardLayout.show(tab, "logout");
+			}
+		});
+    	
+    	logoutButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				id = null;
+				outLabel.setText("");
+				cardLayout.show(tab, "login");
+				idInput.setText("");
+			}
+		});
+    	
+    	exitButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			}
+		});
     }
     
     
@@ -145,6 +173,7 @@ public class MultiChatUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object obj = e.getSource();
+                System.out.println(obj);
 
                 // 종료버튼 처리
                 if (obj == v.exitButton) {

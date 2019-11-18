@@ -44,6 +44,7 @@ public class MultiChatUI extends JFrame {
     public MultiChatUI() {
 
         // 메인 프레임 구성 
+//    	JFrame mainFrame = new JFrame();
     	this.setTitle("::멀티챗::");
     	
         // 로그인 패널 화면 구성 (JPanel)

@@ -44,6 +44,7 @@ public class MultiChatUI extends JFrame {
     public MultiChatUI() {
 
         // 메인 프레임 구성 
+    	JFrame mainFrame = new JFrame();
     	this.setTitle("::멀티챗::");
     	
         // 로그인 패널 화면 구성 (JPanel)
@@ -66,13 +67,13 @@ public class MultiChatUI extends JFrame {
     	logoutPanel = new JPanel();
 
         // 로그아웃 패널 레이아웃 설정
-    	outLabel = new JLabel();
+    	outLabel = new JLabel("대화명: " + idInput.getText());
     	logoutButton = new JButton("로그아웃");
 
     	logoutPanel.setLayout(new BorderLayout());
 
         // 로그아웃 패널에 위젯 구성    	
-    	logoutPanel.add(outLabel, BorderLayout.WEST);
+    	logoutPanel.add(logoutButton, BorderLayout.WEST);
     	logoutPanel.add(logoutButton, BorderLayout.EAST);
     	
         // 메시지 입력 패널 구성 (JPanel)
@@ -95,7 +96,7 @@ public class MultiChatUI extends JFrame {
     	tab.add("logout", logoutPanel);
     	
         // 메시지 출력 영역 초기화
-    	msgOut = new JTextArea(10, 40);
+    	msgOut = new JTextArea(30, 20);
     	
         // JTextArea 의 내용을 수정하지 못하도록 함. 즉 출력전용으로 사용
     	msgOut.setEditable(false);
@@ -129,10 +130,7 @@ public class MultiChatUI extends JFrame {
      * @param listener
      */
     public void addButtonActionListener(ActionListener listener) {
-        // 이벤트 리스너 등록  	
-    	loginButton.addActionListener(listener);
-    	logoutButton.addActionListener(listener);
-    	exitButton.addActionListener(listener);
+        // 이벤트 리스너 등록
     }
     
     
