@@ -71,31 +71,26 @@ public class MultiChatController implements Runnable{
                     connectServer();
                 } else if (obj == v.logoutButton) {
                     // 로그아웃 메시지 전송
-                	System.out.println(outMsg.toString());
                     outMsg.println(gson.toJson(new Message(v.id, "passwd", v.id + "님이 로그아웃 했습니다.", "logout")));
-                    outMsg.flush();
                     
                     // 대화창 클리어
                     v.msgOut.setText("");
                     
                     // 로그인 패널로 전환 및 소켓/스트림 닫기 + status 업데이트
                     v.cardLayout.show(v.tab, "login");
-                    try {
-						socket.close();
-						inMsg.close();
-						outMsg.close();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+//                    try {
+//						socket.close();
+//						inMsg.close();
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
                     status = false;
                     
                 } else if (obj == v.msgInput) {
                     // 입력된 메시지 전송 (위의 로그아웃 메시지 전송코드와 Message 생성자 참고)
                 	System.out.println(v.id + ": " + v.msgInput.getText());
-                	System.out.println(outMsg.toString());
                 	outMsg.println(gson.toJson(new Message(v.id, "passwd", v.msgInput.getText(), "msg")));
-                	outMsg.flush();
                 	
                     // 입력창 클리어
                 	v.msgInput.setText("");

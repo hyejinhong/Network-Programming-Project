@@ -17,6 +17,7 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="MultiChatController"/>
+<fullyQualifiedTypeName name="MultiChatData"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>

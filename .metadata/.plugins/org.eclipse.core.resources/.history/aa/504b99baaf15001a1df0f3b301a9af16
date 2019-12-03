@@ -73,7 +73,6 @@ public class MultiChatController implements Runnable{
                     // 로그아웃 메시지 전송
                 	System.out.println(outMsg.toString());
                     outMsg.println(gson.toJson(new Message(v.id, "passwd", v.id + "님이 로그아웃 했습니다.", "logout")));
-                    outMsg.flush();
                     
                     // 대화창 클리어
                     v.msgOut.setText("");
@@ -95,7 +94,6 @@ public class MultiChatController implements Runnable{
                 	System.out.println(v.id + ": " + v.msgInput.getText());
                 	System.out.println(outMsg.toString());
                 	outMsg.println(gson.toJson(new Message(v.id, "passwd", v.msgInput.getText(), "msg")));
-                	outMsg.flush();
                 	
                     // 입력창 클리어
                 	v.msgInput.setText("");

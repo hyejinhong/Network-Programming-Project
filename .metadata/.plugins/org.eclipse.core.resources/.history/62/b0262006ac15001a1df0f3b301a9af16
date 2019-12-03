@@ -133,7 +133,6 @@ public class MultiChatUI extends JFrame {
     	loginButton.addActionListener(listener);
     	logoutButton.addActionListener(listener);
     	exitButton.addActionListener(listener);
-    	msgInput.addActionListener(listener);
     }
     
     
